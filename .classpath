@@ -34,5 +34,16 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/Shawn/Downloads/rxtx-2.2pre2.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/gtranslateapi-1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/jl1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/cmu_time_awb.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/cmu_us_kal.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/cmudict04.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/cmulex.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/cmutimelex.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/en_us.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/freetts-jsapi10.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/freetts.jar"/>
+	<classpathentry kind="lib" path="/Users/Shawn/Downloads/freetts-1/freetts-1.2/lib/mbrola.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

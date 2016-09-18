@@ -21,6 +21,8 @@ import javax.imageio.ImageIO;
 
 import com.github.sarxos.webcam.Webcam;
 import com.google.api.services.vision.v1.model.EntityAnnotation;
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
@@ -53,6 +55,7 @@ public class ArduinoSerial implements SerialPortEventListener {
 	
 	private Webcam webcam;
 	private DetectImage detect;
+	Voice voice;
 
 	public void initialize() {
                 // the next line is for Raspberry Pi and 
@@ -80,6 +83,10 @@ public class ArduinoSerial implements SerialPortEventListener {
 		try {
 			detect=new DetectImage(DetectImage.getVisionService());
 			webcam=Webcam.getDefault();
+			VoiceManager vm = VoiceManager.getInstance();
+	        voice = vm.getVoice("kevin16");
+	 
+	        voice.allocate();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -140,17 +147,35 @@ public class ArduinoSerial implements SerialPortEventListener {
 				
 				 List<EntityAnnotation> labels = detect.identifyLabel(baos.toByteArray());
 				
-				// save image to PNG file
+				
 				 if(labels!=null){
-					 System.out.print("Distance: "+disM+"m, ");
 					 StringBuilder sb=new StringBuilder();
-					 sb.append("There is a ");
-				    for (EntityAnnotation annotation : labels) {
-				    	sb.append(annotation.getDescription()+",");
-				     
-				    }
-					 sb.append("in front of you.");
+					 if(disM<=3){
+						 sb.append("Caution!There is a "+labels.get(0).getDescription()+" ");
+						 if(labels.size()==2){
+							 sb.append("or "+labels.get(1).getDescription()+" ");
+						 }
+						 
+						 sb.append(disM+" meters in front of you.");
+	 
+					 }
+					 else if(disM<=5){
+						 sb.append("Attention!There is a "+labels.get(0).getDescription()+" ");
+						 if(labels.size()==2){
+							 sb.append("or "+labels.get(1).getDescription()+" ");
+						 }
+						 
+						 sb.append(disM+" meters in front of you.");
+						
+					 }
+					 else
+						 sb.append("All clear");
+					 
 					 System.out.println(sb.toString());
+					 voice.speak(sb.toString());
+				 }
+				 else{
+					 voice.speak("All clear");
 				 }
 
 			} catch (Exception e) {

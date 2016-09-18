@@ -39,7 +39,7 @@ void loop()
  
   // convert the time into a distance
   cm = (duration/2) / 29.1;
-  inches = (duration/2) / 74; 
+  //inches = (duration/2) / 74; 
   
   //Serial.print(inches);
   //Serial.print("in, ");
@@ -47,5 +47,5 @@ void loop()
   //Serial.print("cm");
   Serial.println();
   
-  delay(2500);
+  delay(6000);
 }
