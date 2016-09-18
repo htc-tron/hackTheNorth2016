@@ -126,7 +126,7 @@ public class ArduinoSerial implements SerialPortEventListener {
 	 */
 	public synchronized void close() {
 		if (serialPort != null) {
-			serialPort.removeEventListener();
+			//serialPort.removeEventListener();
 			serialPort.close();
 		}
 		webcam.close();
