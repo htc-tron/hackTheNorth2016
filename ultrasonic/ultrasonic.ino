@@ -7,8 +7,8 @@
         GND: GND
  */
  
-int trigPin = 11;    //Trig - green Jumper
-int echoPin = 12;    //Echo - yellow Jumper
+int trigPin = 11;    //Trig
+int echoPin = 12;    //Echo
 long duration, cm, inches;
  
 void setup() {
@@ -41,11 +41,11 @@ void loop()
   cm = (duration/2) / 29.1;
   inches = (duration/2) / 74; 
   
-  Serial.print(inches);
-  Serial.print("in, ");
+  //Serial.print(inches);
+  //Serial.print("in, ");
   Serial.print(cm);
-  Serial.print("cm");
+  //Serial.print("cm");
   Serial.println();
   
-  delay(500);
+  delay(2500);
 }
